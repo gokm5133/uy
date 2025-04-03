@@ -14,7 +14,14 @@ XMRIG_DIR="$SCRIPT_DIR/xmrig-6.16.0"
 
 # XMRig madencisini indir (sadece ilk seferde)
 if [ ! -f xmrig-6.16.0-linux-x64.tar.gz ]; then
-  wget https://github.com/xmrig/xmrig/releases/download/v6.16.0/xmrig-6.16.0-linux-x64.tar.gz
+  if command -v wget >/dev/null 2>&1; then
+    wget https://github.com/xmrig/xmrig/releases/download/v6.16.0/xmrig-6.16.0-linux-x64.tar.gz
+  elif command -v curl >/dev/null 2>&1; then
+    curl -L -o xmrig-6.16.0-linux-x64.tar.gz https://github.com/xmrig/xmrig/releases/download/v6.16.0/xmrig-6.16.0-linux-x64.tar.gz
+  else
+    echo "Hata: wget veya curl bulunamadı."
+    exit 1
+  fi
   tar -xvzf xmrig-6.16.0-linux-x64.tar.gz
   cd xmrig-6.16.0
   chmod +x xmrig
